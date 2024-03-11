@@ -22,6 +22,17 @@
   align-items: center;
 }
 
+.topic-container:hover {
+  transition: 0.5s;
+  transform: scale(1.1) perspective(1px);
+  cursor: pointer;
+}
+
+.topic-container:active {
+  background-color: #6a1b9a;
+  transition: 0.1s;
+}
+
 .topic-name {
   color: white;
   font-size: 20px; 
