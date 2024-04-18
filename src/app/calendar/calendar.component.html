@@ -1,40 +1,70 @@
-<!-- calendar.component.html -->
-<div class="card bg-base-50 mx-auto px-4 py-5 w-80 shadow-xl text-gray-500">
-  <p class="flex justify-center items-center text-2xl text-bold">
-    Event Calendar
-  </p>
+<div class="flex justify-center items-center gap-x-12">
+  <div class="card bg-base-50 px-4 py-5 w-80 shadow-xl text-gray-500">
+    <p class="flex justify-center items-center text-2xl text-bold">
+      Event Calendar
+    </p>
 
-  <div class="flex justify-between items-center mb-4">
-    <span>{{ currentMonth | date : "MMMM y" }}</span>
+    <div class="flex justify-between items-center mb-4">
+      <span>{{ currentMonth | date : "MMMM y" }}</span>
 
-    <div>
-      <button (click)="previousMonth()" class="btn btn-ghost">
-        <fa-icon [icon]="faChevronLeft"></fa-icon>
-      </button>
-      <button (click)="nextMonth()" class="btn btn-ghost">
-        <fa-icon [icon]="faChevronRight"></fa-icon>
-      </button>
-    </div>
-  </div>
-  <div class="grid grid-cols-7 gap-1 text-center font-bold">
-    <div *ngFor="let day of ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat']">
-      {{ day }}
-    </div>
-  </div>
-  <div class="grid grid-cols-7 gap-1">
-    <ng-container *ngFor="let week of weeks">
-      <div
-        *ngFor="let date of week"
-        class="text-center py-2 cursor-pointer"
-        [ngClass]="{
-          'bg-gray-200': date.getMonth() === currentMonth.getMonth(),
-          'bg-purple-600 text-white': isToday(date),
-          'bg-gray-300': isSelected(date)
-        }"
-        (click)="selectDate(date)"
-      >
-        {{ date | date : "d" }}
+      <div>
+        <button (click)="previousMonth()" class="btn btn-ghost">
+          <fa-icon [icon]="faChevronLeft"></fa-icon>
+        </button>
+        <button (click)="nextMonth()" class="btn btn-ghost">
+          <fa-icon [icon]="faChevronRight"></fa-icon>
+        </button>
       </div>
-    </ng-container>
+    </div>
+    <div class="grid grid-cols-7 gap-1 text-center font-bold">
+      <div
+        *ngFor="let day of ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat']"
+      >
+        {{ day }}
+      </div>
+    </div>
+    <div class="grid grid-cols-7 gap-1">
+      <ng-container *ngFor="let week of weeks">
+        <div
+          *ngFor="let date of week"
+          class="text-center py-2 cursor-pointer"
+          [ngClass]="{
+            'bg-gray-300': date.getMonth() === currentMonth.getMonth(),
+            'bg-purple-600 text-white': isToday(date),
+            'bg-gray-400 text-black': isSelected(date)
+          }"
+          (click)="selectDate(date)"
+        >
+          {{ date | date : "d" }}
+        </div>
+      </ng-container>
+    </div>
+  </div>
+
+  <div class="card bg-base-50 h-96 w-96 shadow-xl p-4 text-gray-500">
+    <div class="text-2xl mb-4">Events</div>
+    <div
+      class="overflow-y-auto px-4"
+      *ngIf="eventsForSelectedDate.length; else noEvents"
+    >
+      <div
+        *ngFor="let event of eventsForSelectedDate"
+        class="flex justify-between items-center mb-4 p-2 border bg-gray-200 rounded cursor-pointer"
+      >
+        <div>
+          <div class="text-xl">{{ event.title }}</div>
+          <div class="text-sm">
+            {{ event.happeningDate | date : "longDate" }}, posted
+            {{ event.postedDate | date : "longDate" }}
+          </div>
+          <div class="text-sm">{{ event.location }}</div>
+        </div>
+
+        <fa-icon [icon]="faStar"></fa-icon>
+      </div>
+    </div>
+    <ng-template #noEvents>
+      <div class="text-center text-sm italic">No events for that day!</div>
+    </ng-template>
   </div>
 </div>

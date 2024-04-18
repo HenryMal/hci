@@ -2,7 +2,11 @@ import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import {
   faChevronLeft,
   faChevronRight,
+  faStar,
 } from '@fortawesome/free-solid-svg-icons';
+
+import { Event } from './event';
+import { EVENTS } from './events';
 
 @Component({
   selector: 'app-calendar',
@@ -14,9 +18,12 @@ export class CalendarComponent implements OnInit {
   currentMonth: Date = new Date();
   today: Date = new Date();
   selectedDate: Date | null = null;
+  eventsForSelectedDate: Event[] = [];
+  events = EVENTS;
 
   faChevronLeft = faChevronLeft;
   faChevronRight = faChevronRight;
+  faStar = faStar;
 
   constructor(private cdr: ChangeDetectorRef) {}
 
@@ -50,6 +57,9 @@ export class CalendarComponent implements OnInit {
 
   selectDate(date: Date): void {
     this.selectedDate = date;
+    this.eventsForSelectedDate = this.events.filter((event) => {
+      return event.happeningDate.toDateString() === date.toDateString();
+    });
   }
 
   isToday(date: Date): boolean {
