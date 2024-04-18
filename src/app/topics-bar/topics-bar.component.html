@@ -1,22 +1,24 @@
-<div
-  class="flex justify-center items-center bg-gray-200 py-2.5 inset-x-0 text-purple-600 gap-x-48"
->
+<div class="absolute w-screen">
   <div
-    class="btn btn-ghost justify-center items-center gap-x-2"
-    *ngFor="let topic of topics"
-    (click)="selectTopic(topic)"
-    [ngClass]="{ 'selected-topic': selectedTopic === topic }"
+    class="flex justify-center items-center bg-gray-200 py-2.5 inset-x-0 text-purple-600 gap-x-32"
   >
-    <fa-icon [icon]="topic.icon"></fa-icon>
-    <a>{{ topic.name }}</a>
+    <div
+      class="btn btn-ghost justify-center items-center gap-x-2"
+      *ngFor="let topic of topics"
+      (click)="selectTopic(topic)"
+      [ngClass]="{ 'selected-topic': selectedTopic === topic }"
+    >
+      <fa-icon [icon]="topic.icon"></fa-icon>
+      <a>{{ topic.name }}</a>
+    </div>
   </div>
-</div>
 
-<div
-  *ngIf="selectedTopic"
-  class="fixed grid grid-rows-4 grid-flow-col justify-center bg-gray-300 text-purple-600 gap-x-32 gap-y-4 py-4 inset-x-0"
->
-  <div *ngFor="let category of selectedTopic.categories">
-    <a class="font-semibold cursor-pointer select-none">{{ category }}</a>
+  <div
+    *ngIf="selectedTopic"
+    class="grid grid-rows-4 grid-flow-col justify-left bg-gray-200 text-purple-600 gap-x-32 gap-y-4 py-4 px-44 inset-x-0 h-32"
+  >
+    <div *ngFor="let category of selectedTopic.categories">
+      <a class="font-semibold cursor-pointer select-none">{{ category }}</a>
+    </div>
   </div>
 </div>

@@ -1,48 +1,53 @@
-<div
-  class="flex justify-between items-center bg-gray-50 py-2.5 px-5 inset-x-0 shadow-2xl text-purple-600"
->
-  <a [routerLink]="['/']" class="flex items-center gap-x-3">
-    <fa-icon [icon]="faPeace" class="text-xl"></fa-icon>
-    <h1 class="text-xl font-semibold m-0">craigslist</h1>
-  </a>
-
-  <div class="flex items-center gap-x-3">
-    <a class="btn btn-outline flex items-center gap-x-2 text-purple-600">
-      <fa-icon [icon]="faCheckSquare"></fa-icon>Make a Post!
+<div class="fixed flex flex-col">
+  <div
+    class="flex justify-between items-center bg-gray-50 py-2.5 px-5 inset-x-0 shadow-2xl text-purple-600 w-screen"
+  >
+    <!-- make it fixed positioning later -->
+    <a [routerLink]="['/']" class="flex items-center gap-x-3">
+      <fa-icon [icon]="faPeace" class="text-xl"></fa-icon>
+      <h1 class="text-xl font-semibold m-0">craigslist</h1>
     </a>
 
-    <div class="h-12 w-px bg-gray-300"></div>
-
-    <a class="btn btn-ghost bg-purple-600 text-white">Sign Up</a>
-    <a class="btn btn-ghost bg-gray-100">Log In</a>
-
-    <div class="dropdown dropdown-end bg-transparent">
-      <a tabindex="0" class="btn btn-ghost">
-        <fa-icon [icon]="faUser"></fa-icon>
+    <div class="flex items-center gap-x-3">
+      <a class="btn btn-outline flex items-center gap-x-2 text-purple-600">
+        <fa-icon [icon]="faCheckSquare"></fa-icon>Make a Post!
       </a>
-      <ul
-        tabindex="0"
-        class="dropdown-content menu p-2 shadow bg-gray-100 rounded-box w-52"
-      >
-        <li>
-          <a class="justify-between">
-            <div class="flex items-center gap-x-3">
-              <fa-icon [icon]="faGlobe"></fa-icon>Language
-            </div>
 
-            <fa-icon [icon]="faChevronRight"></fa-icon>
-          </a>
-        </li>
+      <div class="h-12 w-px bg-gray-300"></div>
 
-        <div class="divider"></div>
-        <li>
-          <a>
-            <div class="flex items-center gap-x-3">
-              <fa-icon [icon]="faRightToBracket"></fa-icon>Log In
-            </div>
-          </a>
-        </li>
-      </ul>
+      <a class="btn btn-ghost bg-purple-600 text-white">Sign Up</a>
+      <a class="btn btn-ghost bg-gray-100">Log In</a>
+
+      <div class="dropdown dropdown-end bg-transparent">
+        <a tabindex="0" class="btn btn-ghost">
+          <fa-icon [icon]="faUser"></fa-icon>
+        </a>
+        <ul
+          tabindex="0"
+          class="dropdown-content menu p-2 shadow bg-gray-100 rounded-box w-52 z-10"
+        >
+          <li>
+            <a class="justify-between">
+              <div class="flex items-center gap-x-3">
+                <fa-icon [icon]="faGlobe"></fa-icon>Language
+              </div>
+
+              <fa-icon [icon]="faChevronRight"></fa-icon>
+            </a>
+          </li>
+
+          <div class="divider"></div>
+          <li>
+            <a>
+              <div class="flex items-center gap-x-3">
+                <fa-icon [icon]="faRightToBracket"></fa-icon>Log In
+              </div>
+            </a>
+          </li>
+        </ul>
+      </div>
     </div>
   </div>
+
+  <app-topics-bar></app-topics-bar>
 </div>

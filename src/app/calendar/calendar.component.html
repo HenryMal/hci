@@ -1,0 +1,36 @@
+<!-- calendar.component.html -->
+<div class="card bg-base-50 mx-auto px-4 py-5 w-80 shadow-xl">
+  <div class="flex justify-between items-center mb-4">
+    <span>{{ currentMonth | date : "MMMM y" }}</span>
+
+    <div>
+      <button (click)="previousMonth()" class="btn btn-ghost">
+        <fa-icon [icon]="faChevronLeft"></fa-icon>
+      </button>
+      <button (click)="nextMonth()" class="btn btn-ghost">
+        <fa-icon [icon]="faChevronRight"></fa-icon>
+      </button>
+    </div>
+  </div>
+  <div class="grid grid-cols-7 gap-1 text-center font-bold">
+    <div *ngFor="let day of ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat']">
+      {{ day }}
+    </div>
+  </div>
+  <div class="grid grid-cols-7 gap-1">
+    <ng-container *ngFor="let week of weeks">
+      <div
+        *ngFor="let date of week"
+        class="text-center py-2 cursor-pointer"
+        [ngClass]="{
+          'bg-gray-200': date.getMonth() === currentMonth.getMonth(),
+          'bg-purple-600 text-black': isToday(date),
+          'bg-gray-300': isSelected(date)
+        }"
+        (click)="selectDate(date)"
+      >
+        {{ date | date : "d" }}
+      </div>
+    </ng-container>
+  </div>
+</div>
