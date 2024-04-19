@@ -1,5 +1,5 @@
 <div class="flex justify-center items-center gap-x-8 text-gray-500">
-  <div class="card bg-base-50 px-4 py-5 shadow-xl">
+  <div class="card bg-gray-100 px-4 py-5 shadow-xl">
     <p class="text-2xl text-bold py-5">Discussion Forums</p>
     <div class="overflow-y-auto h-48">
       <div class="grid grid-rows-10 grid-cols-3 gap-x-12 gap-y-2 px-2">
@@ -7,14 +7,19 @@
           class="flex items-center bg-primary-50 gap-x-2 cursor-pointer"
           *ngFor="let category of categories"
         >
-          <fa-icon [icon]="faCircle" class="text-2xl text-purple-600"></fa-icon>
-          {{ category.name }}
+          <div class="btn btn-ghost">
+            <fa-icon
+              [icon]="faCircle"
+              class="text-2xl text-purple-600"
+            ></fa-icon>
+            {{ category.name }}
+          </div>
         </div>
       </div>
     </div>
   </div>
 
-  <div class="card bg-base-50 px-4 py-5 shadow-xl">
+  <div class="card bg-gray-100 px-4 py-5 shadow-xl">
     <p class="text-2xl text-bold py-5">Recent Forum Posts</p>
     <div class="flex flex-col gap-y-2 overflow-y-auto h-48 w-96">
       <div

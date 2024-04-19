@@ -1,7 +1,36 @@
-<div class="h-16 py-96 bg-gray-800 items-center flex flex-col justify-center">
-  <p class="text-7xl xt-white">Buy what you want in</p>
+<div
+  class="h-16 pt-96 pb-80 bg-gray-800 items-center flex flex-col justify-center"
+>
+  <p class="text-7xl text-white">Buy what you want in</p>
 
-  <p class="text-7xl text-semibold text-purple-600">Oklahoma City, OK</p>
+  <div class="flex justify-center items-center gap-x-8">
+    <p class="text-7xl text-semibold text-purple-600">
+      {{ selectedLocation?.city }}
+    </p>
+
+    <div class="dropdown">
+      <div
+        tabindex="0"
+        role="button"
+        class="btn bg-purple-600 text-white"
+        (click)="toggleDropdown()"
+      >
+        <fa-icon [icon]="faChevronDown"></fa-icon>
+      </div>
+      <ul
+        *ngIf="isOpen"
+        tabindex="0"
+        class="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-52"
+      >
+        <li
+          *ngFor="let location of locations"
+          (click)="selectLocation(location)"
+        >
+          <a>{{ location.city }}</a>
+        </li>
+      </ul>
+    </div>
+  </div>
 
   <label class="input flex items-center gap-2 mt-8 w-3/6">
     <input type="text" class="grow" placeholder="Search" />
