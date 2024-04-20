@@ -17,10 +17,12 @@ export class SearchAreaComponent {
 
   selectedLocation: Location | null = this.locations[0];
 
+  // state for dropdown menu
   toggleDropdown(): void {
     this.isOpen = !this.isOpen;
   }
 
+  // this sets the location of where we want to look posts
   selectLocation(location: Location): void {
     this.selectedLocation =
       this.selectedLocation === undefined ? null : location;

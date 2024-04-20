@@ -16,6 +16,7 @@ export class LoginComponent {
 
   constructor(private router: Router) {}
 
+  // gets initials of user. unused and can be removed
   getInitials(user: User): string {
     let splitName = user.name.split(' ');
     let initials = `${splitName[0][0]}.${splitName[1][0]}`;

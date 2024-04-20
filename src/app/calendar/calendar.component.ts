@@ -32,6 +32,7 @@ export class CalendarComponent implements OnInit {
     this.cdr.detectChanges();
   }
 
+  // makes the calender
   buildCalendar(): void {
     this.weeks = [];
     const startDay = new Date(
@@ -55,6 +56,7 @@ export class CalendarComponent implements OnInit {
     }
   }
 
+  // selects date and events tied with that date
   selectDate(date: Date): void {
     this.selectedDate = date;
     this.eventsForSelectedDate = this.events.filter((event) => {
@@ -62,6 +64,7 @@ export class CalendarComponent implements OnInit {
     });
   }
 
+  // this is so we can highlight today's date
   isToday(date: Date): boolean {
     return (
       date.getDate() === this.today.getDate() &&
@@ -70,6 +73,7 @@ export class CalendarComponent implements OnInit {
     );
   }
 
+  // this is so we can highlight the user's selecte date
   isSelected(date: Date): boolean {
     return (
       !!this.selectedDate &&
@@ -79,18 +83,21 @@ export class CalendarComponent implements OnInit {
     );
   }
 
+  // calculation for start of week
   startOfWeek(date: Date): Date {
     const day = date.getDay();
     const diff = date.getDate() - day + (day === 0 ? -6 : 0);
     return new Date(date.setDate(diff));
   }
 
+  // calculation for end of week
   endOfWeek(date: Date): Date {
     const day = date.getDay();
     const diff = date.getDate() - day + (day === 0 ? 0 : 7);
     return new Date(date.setDate(diff));
   }
 
+  // simply gets next month along with its dates
   nextMonth(): void {
     this.currentMonth = new Date(
       this.currentMonth.getFullYear(),
@@ -99,6 +106,7 @@ export class CalendarComponent implements OnInit {
     this.buildCalendar();
   }
 
+  // gets the previous month along with its date
   previousMonth(): void {
     this.currentMonth = new Date(
       this.currentMonth.getFullYear(),
