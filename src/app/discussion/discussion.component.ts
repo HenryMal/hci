@@ -25,13 +25,13 @@ export class DiscussionComponent {
     return category?.name;
   }
 
-  getInitials(post: Post): String {
+  getInitials(post: Post): string {
     let splitName = post.author.split(' ');
     let initials = `${splitName[0][0]}.${splitName[1][0]}`;
     return initials;
   }
 
-  getDateString(post: Post): String {
+  getDateString(post: Post): string {
     return `${post.postDate.toLocaleString('default', {
       month: 'long',
     })} ${post.postDate.getDate()}, ${post.postDate.getFullYear()}`;

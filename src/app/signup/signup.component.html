@@ -1,0 +1,49 @@
+<div class="flex justify-center items-center min-h-screen bg-neutral-50">
+  <div class="card bg-gray-200 w-96 shadow-xl">
+    <div class="flex justify-center items-center flex-col gap-y-2 pt-4">
+      <p class="text-black text-bold text-3xl">Create a new account</p>
+      <p class="text-gray-500">It's easy and simple.</p>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="card-body pt-0">
+      <input placeholder="Full Name" class="input input-bordered bg-gray-100" />
+      <input
+        type="password"
+        placeholder="New Password"
+        class="input input-bordered bg-gray-100"
+      />
+
+      <label class="form-control w-full max-w-xs py-2">
+        <span class="label-text">What is your birthday?</span>
+        <div class="grid grid-cols-3 gap-2">
+          <input
+            placeholder="MM"
+            class="input input-bordered w-full bg-gray-100"
+            maxlength="2"
+          />
+          <input
+            placeholder="DD"
+            class="input input-bordered w-full bg-gray-100"
+            maxlength="2"
+          />
+          <input
+            placeholder="YYYY"
+            class="input input-bordered w-full bg-gray-100"
+            maxlength="4"
+          />
+        </div>
+      </label>
+
+      <button class="btn btn-success" (click)="navigateToHome()">
+        Sign Up
+      </button>
+      <a class="flex justify-center link" (click)="navigateToLogin()"
+        >Already have an account?</a
+      >
+    </div>
+  </div>
+</div>
+
+<app-footer></app-footer>
