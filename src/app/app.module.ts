@@ -12,6 +12,7 @@ import { TopicsBarComponent } from './topics-bar/topics-bar.component';
 import { SearchAreaComponent } from './search-area/search-area.component';
 import { CalendarComponent } from './calendar/calendar.component';
 import { DiscussionComponent } from './discussion/discussion.component';
+import { FooterComponent } from './footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { DiscussionComponent } from './discussion/discussion.component';
     SearchAreaComponent,
     CalendarComponent,
     DiscussionComponent,
+    FooterComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, FontAwesomeModule],
   providers: [provideClientHydration()],

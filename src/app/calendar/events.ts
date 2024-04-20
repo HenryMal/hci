@@ -11,7 +11,7 @@ export const EVENTS: Event[] = [
     title: 'ui/ux rager',
     postedDate: new Date('2024-04-05'),
     happeningDate: new Date('2024-04-30'),
-    location: 'Lawton, TX',
+    location: 'Lawton, OK',
   },
   {
     title: 'Tarzan-Maxx.com Body Sculpture with Mr. Universe',

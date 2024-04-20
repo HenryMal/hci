@@ -1,0 +1,38 @@
+<div class="flex justify-center bg-gray-200">
+  <div class="grid grid-cols-5 text-gray-500 gap-x-48 py-16">
+    <div class="">
+      <div class="flex items-center gap-x-4 text-purple-600 text-3xl">
+        <fa-icon [icon]="faPeace"></fa-icon>
+        <p class="font-semibold">craigslist</p>
+      </div>
+
+      <p>© 2024 craigslist.org</p>
+    </div>
+
+    <div class="flex flex-col" *ngFor="let section of sections">
+      <p class="text-gray-800 text-lg font-semibold pb-4">{{ section.name }}</p>
+
+      <ul class="flex flex-col gap-y-2">
+        <li *ngFor="let link of section.links">
+          <a>{{ link }}</a>
+        </li>
+      </ul>
+    </div>
+
+    <div class="">
+      <p class="text-gray-800 text-lg font-semibold pb-4">Follow Us!</p>
+
+      <div class="flex gap-x-4 text-5xl text-purple-600">
+        <a>
+          <fa-icon [icon]="faSquareFacebook"></fa-icon>
+        </a>
+        <a>
+          <fa-icon [icon]="faSquareTwitter"></fa-icon>
+        </a>
+        <a>
+          <fa-icon [icon]="faSquareInstagram"></fa-icon>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
